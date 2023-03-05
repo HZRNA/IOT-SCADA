@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://kit.fontawesome.com/451e8ee248.js" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand">IOT-SCADA | <img src="img.jpg"/> <b>POLITEKNIK NEGERI BATAM</b>
+          </a> 
+        
+      </div>
+    </nav>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+    <script>
+      var IOdataP
+      var IOdata 
+      var dta
+      var data_write 
+      var socket = io.connect( 'http://'+window.location.hostname+':3000' );
+      socket.on('connection')
+      let testBool 
+    //  const element = document.getElementById("button");
+    //     element.addEventListener("click", myFunction);
+
+        const sendtrue = () => {
+          testBool = true;
+          data_write = "on"  
+          socket.emit('Write', data_write)
+          console.log(data_write)
+          document.getElementById("pb1").disabled = true;
+          document.getElementById("pb1").style.opacity = "0.6"
+          document.getElementById("pb1").style.cursor = "not-allowed"
+          
+          document.getElementById("pb2").disabled = false;
+          document.getElementById("pb2").style.opacity = "1"
+          document.getElementById("pb2").style.cursor = "pointer"
+        } 
+        const sendfalse = () => {
+          testBool = false;
+          data_write = "off"  
+          socket.emit('Write', data_write)
+          console.log(data_write)
+          document.getElementById("pb2").disabled = true;
+          document.getElementById("pb2").style.opacity = "0.6"
+          document.getElementById("pb2").style.cursor = "not-allowed"
+
+          document.getElementById("pb1").disabled = false;
+          document.getElementById("pb1").style.opacity = "1"
+          document.getElementById("pb1").style.cursor = "pointer"
+        } 
+          if (testBool == true){
+               data_write = "on"
+               console.log(data_write)
+             }
+             else if (testBool == false){
+               data_write="off"
+               console.log(data_write)
+             }
+      socket.on('IO', function(data){
+        IOdata = data.toString()
+        IOdataP = JSON.parse("[" + IOdata + "]");
+        console.log(IOdataP)
+        document.getElementById("demo").innerHTML = IOdataP[16];
+        if (IOdataP[0] == 1){
+          document.getElementById("11").className = "IOR";
+        }
+        else if (IOdataP[0] == 0){
+          document.getElementById("11").className = "IOG";
+        }
+        if (IOdataP[1] == 1){
+          document.getElementById("12").className = "IOR";
+        }
+        else if (IOdataP[1] == 0){
+          document.getElementById("12").className = "IOG";
+        }
+        if (IOdataP[2] == 1){
+          document.getElementById("13").className = "IOR";
+        }
+        else if (IOdataP[2] == 0){
+          document.getElementById("13").className = "IOG";
+        }
+        if (IOdataP[3] == 1){
+          document.getElementById("14").className = "IOR";
+        }
+        else if (IOdataP[3] == 0){
+          document.getElementById("14").className = "IOG";
+        }
+        if (IOdataP[4] == 1){
+          document.getElementById("15").className = "IOR";
+        }
+        else if (IOdataP[4] == 0){
+          document.getElementById("15").className = "IOG";
+        }
+        if (IOdataP[5] == 1){
+          document.getElementById("16").className = "IOR";
+        }
+        else if (IOdataP[5] == 0){
+          document.getElementById("16").className = "IOG";
+        }
+        if (IOdataP[6] == 1){
+          document.getElementById("17").className = "IOR";
+        }
+        else if (IOdataP[6] == 0){
+          document.getElementById("17").className = "IOG";
+        }
+        if (IOdataP[7] == 1){
+          document.getElementById("18").className = "IOR";
+        }
+        else if (IOdataP[7] == 0){
+          document.getElementById("18").className = "IOG";
+        }
+        if (IOdataP[8] == 1){
+          document.getElementById("21").className = "IOR";
+        }
+        else if (IOdataP[8] == 0){
+          document.getElementById("21").className = "IOG";
+        }
+        if (IOdataP[9] == 1){
+          document.getElementById("22").className = "IOR";
+        }
+        else if (IOdataP[9] == 0){
+          document.getElementById("22").className = "IOG";
+        }
+        if (IOdataP[10] == 1){
+          document.getElementById("23").className = "IOR";
+        }
+        else if (IOdataP[10] == 0){
+          document.getElementById("23").className = "IOG";
+        }
+        if (IOdataP[11] == 1){
+          document.getElementById("24").className = "IOR";
+        }
+        else if (IOdataP[11] == 0){
+          document.getElementById("24").className = "IOG";
+        }
+        if (IOdataP[12] == 1){
+          document.getElementById("25").className = "IOR";
+        }
+        else if (IOdataP[12] == 0){
+          document.getElementById("25").className = "IOG";
+        }
+        if (IOdataP[13] == 1){
+          document.getElementById("26").className = "IOR";
+        }
+        else if (IOdataP[13] == 0){
+          document.getElementById("26").className = "IOG";
+        }
+        if (IOdataP[14] == 1){
+          document.getElementById("27").className = "IOR";
+        }
+        else if (IOdataP[14] == 0){
+          document.getElementById("27").className = "IOG";
+        }
+        if (IOdataP[15] == 1){
+          document.getElementById("28").className = "IOR";
+        }
+        else if (IOdataP[15] == 0){
+          document.getElementById("28").className = "IOG";
+        }
+      })
+
+
+      // var data=[]
+      // window.addEventListener("load", function(){ //when page loads
+      //   socket.on('message', function (message) { //get button status from client
+      //   data = [message]
+      // });
+      
+      //   document.getElementById("light").checked = data; //change checkbox according to push button on Raspberry Pi
+      //   socket.emit("message", message); //send push button status to back to server
+      // });
+    </script>
+  </body>
+</html>

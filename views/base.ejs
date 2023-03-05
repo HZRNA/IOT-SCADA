@@ -1,0 +1,103 @@
+<%- include ("_header") %>
+    <div class="container-fluid">
+        <div class="d-inline-flex p-2 bd-highlight">
+          <div class="ONOFFG"></div>
+        </div>
+    </div>
+    <div class="container-fluid ">
+        <div class="row text-white">
+            <div class="d-flex justify-content-center">
+                <div class="card bg-info m-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa-solid fa-temperature-three-quarters"></i>
+                        </div>
+                    <h5 class="card-title">KWH METER</h5>
+                    <div class="display-4"><p id="demo"></p></div>
+                    </div>
+                </div>
+                <div class="card bg-success m-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    <h5 class="card-title">OUTPUT BARANG</h5>
+                    <div class="display-4">30</div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-cols-2">
+            <fieldset>
+                <legend>Input</legend>
+                <div class="row row-cols-8 m-6 ">
+                    <div  class="col">
+                        <div id="11" class="IOG">I0</div>
+                    </div>
+                    <div  class="col">
+                        <div id="12" class="IOG">I1</div>
+                    </div>
+                    <div  class="col">
+                        <div id="13" class="IOG">I2</div>
+                    </div>
+                    <div  class="col">
+                        <div id="14" class="IOG">I3</div>
+                    </div>
+                    <div  class="col">
+                        <div id="15" class="IOG">I4</div>
+                    </div>
+                    <div  class="col">
+                        <div id="16" class="IOG">I5</div>
+                    </div>
+                    <div  class="col">
+                        <div id="17" class="IOG">I6</div>
+                    </div>
+                    <div  class="col">
+                        <div id="18" class="IOG">I7</div>
+                    </div>
+                </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Output</legend>
+            <div class="row row-cols-8 m-6 ">
+                <div  class="col">
+                    <div id="21" class="IOG">O0</div>
+                </div>
+                <div  class="col">
+                    <div id="22" class="IOG">O1</div>
+                </div>
+                <div  class="col">
+                    <div id="23" class="IOG">O2</div>
+                </div>
+                <div  class="col">
+                    <div id="24" class="IOG">O3</div>
+                </div>
+                <div  class="col">
+                    <div id="25" class="IOG">O4</div>
+                </div>
+                <div  class="col">
+                    <div  id="26" class="IOG">O5</div>
+                </div>
+                <div  class="col">
+                    <div id="27" class="IOG">O6</div>
+                </div>
+                <div  class="col">
+                    <div id="28" class="IOG">O7</div>
+                </div>
+            </div>
+        </fieldset>
+            <div class="row-cols-2 M-6">
+                <div class="col">
+                    <button id="pb1" onclick="sendtrue()" class="button1">ON</button>
+                </div>
+                <div class="col">
+                    <button id="pb2" onclick="sendfalse()" class="button2" disabled >OFF</button>
+                </div>
+            
+            </div>
+        </div>  
+    </div>
+
+<%- include ("_footer") %>

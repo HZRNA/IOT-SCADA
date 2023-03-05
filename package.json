@@ -1,0 +1,19 @@
+{
+  "name": "iot-scada",
+  "version": "0.0.1",
+  "description": "This is web for Final Project I0T-SCADA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "Hernan S.Idris_4211911018",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mqtt": "^4.3.7",
+    "path": "^0.12.7",
+    "socket.io": "^4.5.3"
+  }
+}
